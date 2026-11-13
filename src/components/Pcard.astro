@@ -1,17 +1,36 @@
 ---
 const{produkt} = Astro.props;
+import Button from "../components/Button.astro";
+
+const endpoint = "https://etyaeqxpnqykzsttqmdi.supabase.co/rest/v1/events?select=*";
+
+const options = {
+    headers:{
+        apikey:"sb_publishable_xiHoyVhRIwnXiL6L-HwFBA_hUgNxt72"
+    },
+}
+
+const data = await fetch(endpoint, options).then((res)=> res.json())
 ---
 <article>
+    <div>
     <img src=`https://kea-alt-del.dk/t7/images/webp/640/${produkt.id}.webp` alt="produktbillede">
-    <h2>{produkt.productdisplayname}</h2>
-    <p>{produkt.price},- kr.</p>
+    </div>
+    <div>
+    <h2>{produkt.titel}</h2>
+    <p>{produkt.dato}</p>
+    <p>{produkt.tid}</p>
+    <p>{produkt.beskrivelse}</p>
+     {data.map(knap=><Button {knap}/>)}
+    </div>
 </article>
 
 <style>
     article{
         padding: 1rem;
-        border: 1px solid;
-        background-color: wheat;
+        background-color: #FCF9F0;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
     }
     img{
         max-width: 100%;
