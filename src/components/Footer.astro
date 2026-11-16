@@ -1,0 +1,93 @@
+<footer>
+
+
+    <div class="footer-contact">
+      <h2>CONTACT</h2>
+      <a href="mailto:kinddesign.cph@gmail.com">
+        Email: kinddesign.cph@gmail.com
+      </a>
+    </div>
+
+ <div class="footer-newsletter">
+    <h2>NEWSLETTER</h2>
+
+    <form>
+      <input
+        type="email"
+        placeholder="E-mail"
+        required
+      >
+    </form>
+  </div>
+<div class="logo">
+			<img src="/src/img/blogo_result.webp" alt="">
+			</div>
+		</footer>
+
+        /* footer */
+        <style>
+footer{
+	background-color: #DEEFF5;
+	display: flex;
+	height: 141px;
+	align-items: center;
+	justify-content: space-between;
+	padding: 0 45px;
+}
+
+.footer-info {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.footer h2 {
+  font-size: 23px;
+  font-weight: 800;
+  margin-bottom: 5px;
+}
+
+.footer a {
+  display: block;
+  color: #350e14;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 300;
+  transition: opacity 0.25s ease;
+}
+
+
+/* newsletter */
+.footer-newsletter {
+  justify-self: center;
+}
+
+.footer-newsletter form {
+  margin-top: 12px;
+}
+
+.footer-newsletter input {
+  width: 210px;
+  height: 48px;
+
+  border: 3px solid #350e14;
+  border-radius: 50px;
+
+  background: #fffdf5;
+  padding: 0 20px;
+
+  color: #350e14;
+
+  outline: none;
+  transition: box-shadow 0.25s ease;
+}
+
+.footer-newsletter input:focus {
+  box-shadow: 0 0 0 4px rgba(53, 14, 20, 0.12);
+}
+
+.footer-newsletter input::placeholder {
+  color: #350e14;
+}
+
+</style>
