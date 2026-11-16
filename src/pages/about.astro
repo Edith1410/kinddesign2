@@ -1,0 +1,23 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Pcard  from "../components/Pcard.astro";
+import { keyof } from "astro:schema";
+
+const endpoint = "https://etyaeqxpnqykzsttqmdi.supabase.co/rest/v1/events?select=*";
+
+const options = {
+    headers:{
+        apikey:"sb_publishable_xiHoyVhRIwnXiL6L-HwFBA_hUgNxt72"
+    },
+}
+
+const data = await fetch(endpoint, options).then((res)=> res.json())
+console.log(data)
+---
+
+<Layout>
+   <h1>ABOUT US</h1>
+    <section>
+        
+    </section>
+</Layout>

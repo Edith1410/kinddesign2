@@ -1,0 +1,91 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Pcard  from "../components/Pcard.astro";
+import { keyof } from "astro:schema";
+
+const endpoint = "https://etyaeqxpnqykzsttqmdi.supabase.co/rest/v1/events?select=*";
+
+const options = {
+    headers:{
+        apikey:"sb_publishable_xiHoyVhRIwnXiL6L-HwFBA_hUgNxt72"
+    },
+}
+
+const data = await fetch(endpoint, options).then((res)=> res.json())
+console.log(data)
+---
+
+<Layout>
+   <h1>EVENTS</h1>
+<section class="carousel">
+  <div class="carousel-track">
+    <img src="/src/img/c1_result.webp" alt="Photo 1">
+    <img src="/src/img/c2_result.webp" alt="Photo 2">
+    <img src="/src/img/c3_result.webp" alt="Photo 3">
+    <img src="/src/img/c4_result.webp" alt="Photo 4">
+    <img src="/src/img/c5_result.webp" alt="Photo 5">
+    <img src="/src/img/c6_result.webp" alt="Photo 6">
+  </div>
+</section>
+    <section class="events-cards">
+        {data.map(produkt=><Pcard {produkt}/>)}
+    </section>
+</Layout>
+
+<style>
+    section{
+        gap: 1rem;
+    }
+    article{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+    h1{
+        text-align: center;
+    }
+
+.carousel {
+  width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+
+  padding: 30px 5px;
+}
+
+.carousel::-webkit-scrollbar {
+  display: none;
+}
+
+.carousel-track {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+
+  width: max-content;
+}
+
+/* Images */
+.carousel-track img {
+  width: 450px;
+  height: 530px;
+
+  object-fit: cover;
+  flex-shrink: 0;
+
+  cursor: pointer;
+
+  transition:
+    width 0.4s ease,
+    height 0.4s ease,
+    filter 0.4s ease;
+
+  filter: grayscale(0%);
+}
+.carousel-track img:hover{
+    transform: scale(1.04);
+}
+
+</style>
