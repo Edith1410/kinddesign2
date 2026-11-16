@@ -1,0 +1,27 @@
+---
+export async function getStaticPaths() {
+
+
+const endpoint = "https://etyaeqxpnqykzsttqmdi.supabase.co/rest/v1/events?select=*";
+
+const options = {
+    headers:{
+        apikey:"sb_publishable_xiHoyVhRIwnXiL6L-HwFBA_hUgNxt72"
+    },
+}
+  const response = await fetch(endpoint, options);
+  const data: any[] = await response.json();
+
+  return data.map((post) => {
+    return {
+      params: { id: post.id.toString() },
+      props: { post },
+    };
+  });
+}
+
+const { id } = Astro.params;
+const { post } = Astro.props;
+---
+
+<h1>{id}: {post.name}</h1>
