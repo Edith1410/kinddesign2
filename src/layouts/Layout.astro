@@ -1,5 +1,5 @@
 ---
-import Contactbutton from "../components/Contactbutton.astro";
+import Header from "../components/Header.astro";
 ---
 
 <!doctype html>
@@ -13,21 +13,7 @@ import Contactbutton from "../components/Contactbutton.astro";
 		<title>Astro Basics</title>
 	</head>
 	<body>
-		<header class="navbar">
-
-			<div class="logo">
-			<img src="/src/img/glogo_result.webp" alt="">
-			</div>
-			<nav class="nav-links">
-				<a href="/">HOME</a>
-				<a href="/event">EVENTS</a>
-				<a href="/about">ABOUT</a>
-			</nav>
-				
-			<div class="contact-btn">
-				 <Contactbutton/>
-			</div>
-		</header>
+		<Header />
 		<slot />
 		<footer>
 
