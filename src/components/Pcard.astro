@@ -12,7 +12,7 @@ const options = {
 
 const data = await fetch(endpoint, options).then((res)=> res.json())
 ---
-<a href='details/${produkt.id}''>
+<a href=`../details/${produkt.id}`>
 <article>
     <div>
     <img src=`https://etyaeqxpnqykzsttqmdi.supabase.co/storage/v1/object/public/${produkt.id}.webp` 

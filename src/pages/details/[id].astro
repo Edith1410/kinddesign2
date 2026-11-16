@@ -1,6 +1,5 @@
 ---
-
-import Layout from "../layouts/Layout.astro";
+import Layout from "../../layouts/Layout.astro";
 
 export async function getStaticPaths() {
 
@@ -15,16 +14,18 @@ const options = {
   const response = await fetch(endpoint, options);
   const data: any[] = await response.json();
 
-  return data.map((post) => {
+  return data.map((event) => {
     return {
-      params: { id: post.id.toString() },
-      props: { post },
+      params: { id: event.id.toString() },
+      props: { event },
     };
   });
 }
 
 const { id } = Astro.params;
-const { post } = Astro.props;
+const { event } = Astro.props;
 ---
-
-<h1>{id}: {post.name}</h1>
+<Layout>
+<h1>{id}: {event.titel}</h1>
+<p>{event.beskrivelse}</p>
+</Layout>
