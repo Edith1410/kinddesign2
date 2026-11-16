@@ -12,9 +12,10 @@ const options = {
 
 const data = await fetch(endpoint, options).then((res)=> res.json())
 ---
+<a href='details/${produkt.id}''>
 <article>
     <div>
-    <img src=`https://etyaeqxpnqykzsttqmdi.supabase.co/storage/v1/object/public/events/?{event.id}.webp` 
+    <img src=`https://etyaeqxpnqykzsttqmdi.supabase.co/storage/v1/object/public/${produkt.id}.webp` 
      alt="eventbillede">
     </div>
     <div>
@@ -25,6 +26,7 @@ const data = await fetch(endpoint, options).then((res)=> res.json())
      <Button/>
     </div>
 </article>
+</a>
 
 <style>
     article{
@@ -35,5 +37,9 @@ const data = await fetch(endpoint, options).then((res)=> res.json())
     }
     img{
         max-width: 100%;
+    }
+    a{
+        text-decoration:none;
+        color: inherit
     }
 </style>
