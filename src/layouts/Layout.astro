@@ -1,7 +1,7 @@
 ---
 import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
 ---
-
 <!doctype html>
 <html lang="en">
 	<head>
@@ -15,31 +15,7 @@ import Header from "../components/Header.astro";
 	<body>
 		<Header />
 		<slot />
-		<footer>
-
-
-    <div class="footer-contact">
-      <h2>CONTACT</h2>
-      <a href="mailto:kinddesign.cph@gmail.com">
-        Email: kinddesign.cph@gmail.com
-      </a>
-    </div>
-
- <div class="footer-newsletter">
-    <h2>NEWSLETTER</h2>
-
-    <form>
-      <input
-        type="email"
-        placeholder="E-mail"
-        required
-      >
-    </form>
-  </div>
-<div class="logo">
-			<img src="/src/img/blogo_result.webp" alt="">
-			</div>
-		</footer>
+		<Footer />
 	</body>
 </html>
 
