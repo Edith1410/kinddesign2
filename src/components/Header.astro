@@ -8,6 +8,13 @@ import Contactbutton from "../components/Contactbutton.astro";
 			<div class="logo">
 			<img src="/src/img/glogo_result.webp" alt="">
 			</div>
+
+			<button class="menu-toggle" aria-label="Open navigation" aria-expanded="false">
+				<span></span>
+				<span></span>
+				<span></span>
+			</button>
+
 			<nav class="nav-links">
 				<a href="/">HOME</a>
 				<a href="/event">EVENTS</a>
@@ -42,6 +49,7 @@ a{
   align-items: center;
   justify-content: space-between;
   padding: 0 45px;
+  position: relative;
 }
 .logo {
   display: flex;
@@ -74,4 +82,80 @@ a{
   text-decoration: underline;
   text-underline-offset: 3px;
 }
+
+.menu-toggle {
+  display: none;
+  background: transparent;
+  border: none;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.menu-toggle span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: #fff9f1;
+  border-radius: 2px;
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    height: auto;
+    padding: 18px 20px;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .logo {
+    flex: 1;
+    justify-content: flex-start;
+  }
+
+  .menu-toggle {
+    display: flex;
+  }
+
+  .nav-links {
+    display: none;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    padding: 8px 0 0;
+  }
+
+  .navbar.open .nav-links {
+    display: flex;
+  }
+
+   .contact-btn {
+    display: none;
+}
         </style>
+
+<script>
+  const navbar = document.querySelector('.navbar');
+  const menuToggle = document.querySelector('.menu-toggle');
+
+  if (navbar && menuToggle) {
+    menuToggle.addEventListener('click', () => {
+      const isOpen = navbar.classList.toggle('open');
+      menuToggle.setAttribute('aria-expanded', String(isOpen));
+    });
+
+    navbar.querySelectorAll('a').forEach((link) => {
+      link.addEventListener('click', () => {
+        navbar.classList.remove('open');
+        menuToggle.setAttribute('aria-expanded', 'false');
+      });
+    });
+  }
+</script>

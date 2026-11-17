@@ -33,9 +33,9 @@ const { event } = Astro.props;
     </div>
     <div class="event-info">
     <h2>{event.titel}</h2>
-    <p>📅 {event.dato}</p>
-    <p>🕣 {event.tid}</p>
-    <p>💲 {event.pris},- kr.</p>
+    <p><img src="/src/img/calender_result.webp" alt="calender">{event.dato}</p>
+    <p><img src="/src/img/time.webp" alt="location"> {event.tid}</p>
+    <p><img src="/src/img/money_result.webp" alt="price"> {event.pris},- kr.</p>
     <p>{event.beskrivelse}</p>
     <Buybtn />
     </div>
@@ -61,6 +61,17 @@ h2{
 p{
     font-family: InterMedium;
      color:#2C0B11 ;
+}
+p img{
+    max-width: 50px;
+    justify-self: center;
+}
+.event-info p {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 10px 0;
+  color: #2C0B11;
 }
     article{
         padding: 1rem;
