@@ -1,5 +1,6 @@
 ---
 import Layout from "../../layouts/Layout.astro";
+import Buybtn from "../../components/Buybtn.astro"
 
 export async function getStaticPaths() {
 
@@ -26,6 +27,33 @@ const { id } = Astro.params;
 const { event } = Astro.props;
 ---
 <Layout>
-<h1>{id}: {event.titel}</h1>
-<p>{event.beskrivelse}</p>
+<article>
+    <div class="event-image">
+    <img src={event.image_url} alt={event.titel}/>
+    </div>
+    <div class="event-info">
+    <h2>{event.titel}</h2>
+    <p>📅 {event.dato}</p>
+    <p>🕣 {event.tid}</p>
+    <p>💲 {event.pris},- kr.</p>
+    <p>{event.beskrivelse}</p>
+    <Buybtn />
+    </div>
+</article>
 </Layout>
+
+<style>
+    article{
+        padding: 1rem;
+        background-color: #FCF9F0;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+    img{
+        max-width: 80%;
+    }
+    a{
+        text-decoration:none;
+        color: inherit
+    }
+</style>
