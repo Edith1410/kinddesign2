@@ -1,7 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Pcard  from "../components/Pcard.astro";
-import { keyof } from "astro:schema";
+import  keyof  from "astro:schema";
 
 const endpoint = "https://etyaeqxpnqykzsttqmdi.supabase.co/rest/v1/events?select=*";
 
@@ -17,6 +16,7 @@ console.log(data)
 
 <Layout>
    <h1>ABOUT US</h1>
+   <img class="hero-about" src="/src/img/hero-about.webp" alt="picture collage">
     <section class="about-us-section">
         <div>
         <img src=`/src/img/a1_result.webp` 
@@ -57,25 +57,60 @@ console.log(data)
 </Layout>
 
 <style>
-h1{
-    text-align:center
+
+    .hero-about{
+        max-width: 1000px;
+    }
+  h1 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+  }
+
+  h3,p{
+    padding: 0;
+    margin: 0;
 }
 
-h3,p{
-    padding: 0;
-    margin: 0;
-}
-.about-us-section{
+  .about-us-section {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    
-}
-img{
-    max-width:500px;
+    gap: 0.5rem 1rem;
+    align-items: center;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 1rem 2rem;
+  }
+
+  .about-us-section > div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .about-us-section > div:first-child {
+    justify-self: center;
+  }
+
+  img {
+    display: block;
+    width: 100%;
+    max-width: 420px;
+    height: auto;
+    margin: 0 auto;
     padding: 0;
-    margin: 0;
-}
-section{
+  }
+
+  h3 {
+    margin-bottom: 0.35rem;
+    line-height: 1.2;
+  }
+
+  p {
+    line-height: 1.45;
+    font-size: 0.97rem;
+  }
+
+  section{
     display: flex;
     justify-content: center;
     align-items: center;
