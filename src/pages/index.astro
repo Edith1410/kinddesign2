@@ -15,7 +15,6 @@ const options = {
 
 const data = await fetch(endpoint, options).then((res)=> res.json())
 console.log(data)
-
 ---
 
 
@@ -56,7 +55,10 @@ console.log(data)
     </section>
 
 	<h1>UPCOMING EVENT</h1>
-	<Fcard />
+	 <section class="events-cards">
+        {data.map(produkt=><Pcard {produkt}/>)}
+    </section>
+
 </Layout>
 
 <style>
