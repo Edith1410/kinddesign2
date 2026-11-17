@@ -28,6 +28,25 @@ const data = await fetch(endpoint, options).then((res)=> res.json())
 </a>
 
 <style>
+
+@font-face {
+  font-family: "InterBold";
+  src: url("../fonts/Inter_18pt-ExtraBold.woff2") format("woff2");
+  font-weight: normal;
+}
+@font-face {
+  font-family: "InterMedium";
+  src: url("../fonts/Inter_24pt-ExtraLight.woff2") format("woff2");
+  font-weight: normal;
+}
+h2{
+    font-family: InterBold;
+     color:#2C0B11 ;
+}
+p{
+    font-family: InterMedium;
+     color:#2C0B11 ;
+}
     article{
         padding: 1rem;
         background-color: #FCF9F0;
