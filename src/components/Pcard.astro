@@ -14,14 +14,13 @@ const data = await fetch(endpoint, options).then((res)=> res.json())
 ---
 <a href=`../details/${produkt.id}`>
 <article>
-    <div>
-    <img src=`https://etyaeqxpnqykzsttqmdi.supabase.co/storage/v1/object/public/${produkt.id}.webp` 
-     alt="eventbillede">
+    <div class="event-image">
+    <img src={produkt.image_url} alt={produkt.titel}/>
     </div>
-    <div>
+    <div class="event-info">
     <h2>{produkt.titel}</h2>
-    <p>{produkt.dato}</p>
-    <p>{produkt.tid}</p>
+    <p>📅 {produkt.dato}</p>
+    <p>🕣 {produkt.tid}</p>
     <p>{produkt.beskrivelse}</p>
      <Button/>
     </div>
@@ -36,7 +35,7 @@ const data = await fetch(endpoint, options).then((res)=> res.json())
         grid-template-columns: 1fr 1fr;
     }
     img{
-        max-width: 100%;
+        max-width: 80%;
     }
     a{
         text-decoration:none;

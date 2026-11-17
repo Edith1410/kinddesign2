@@ -1,0 +1,44 @@
+---
+const{produkt} = Astro.props;
+import Button from "../components/Button.astro";
+
+const endpoint = "https://etyaeqxpnqykzsttqmdi.supabase.co/rest/v1/events?select=*";
+
+const options = {
+    headers:{
+        apikey:"sb_publishable_xiHoyVhRIwnXiL6L-HwFBA_hUgNxt72"
+    },
+}
+
+const data = await fetch(endpoint, options).then((res)=> res.json())
+---
+<article>
+    <div>
+    <img src=`https://etyaeqxpnqykzsttqmdi.supabase.co/storage/v1/object/public/${1}.webp` 
+     alt="eventbillede">
+    </div>
+    <div>
+    <h2>{produkt.titel}</h2>
+    <p>{produkt.dato}</p>
+    <p>{produkt.tid}</p>
+    <p>{produkt.beskrivelse}</p>
+     <Button/>
+    </div>
+</article>
+
+
+<style>
+    article{
+        padding: 1rem;
+        background-color: #FCF9F0;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+    img{
+        max-width: 100%;
+    }
+    a{
+        text-decoration:none;
+        color: inherit
+    }
+</style>

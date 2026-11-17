@@ -1,7 +1,9 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Pcard  from "../components/Pcard.astro";
 import Morelink from "../components/Morelink.astro";
+import  Explorebtn  from "../components/Explorebtn.astro";
+import  Pcard  from "../components/Pcard.astro";
+import Fcard from "../components/Fcard.astro";
 
 const endpoint = "https://etyaeqxpnqykzsttqmdi.supabase.co/rest/v1/events?select=*";
 
@@ -15,9 +17,22 @@ const data = await fetch(endpoint, options).then((res)=> res.json())
 console.log(data)
 ---
 
+
 <Layout>
-	<img class="hero" src="/src/img/hero_result.webp" alt="">
-   <h1>CREATIVE COMMUNITY</h1>
+	<section class="hero">
+  <div class="hero-content">
+    <h1>CREATIVE<br>COMMUNITY</h1>
+
+    <p>
+      For all kinds of designers,<br>
+      meetups & events
+    </p>
+
+	<Explorebtn />
+    
+  </div>
+</section>
+   <!-- <h1>CREATIVE COMMUNITY</h1> -->
     <section class="more-section">
 		<div>
 		<img src="/src/img/f1_result.webp" alt="">
@@ -40,6 +55,10 @@ console.log(data)
     </section>
 
 	<h1>UPCOMING EVENT</h1>
+	 <section class="events-cards">
+        {data.map(produkt=><Pcard {produkt}/>)}
+    </section>
+
 </Layout>
 
 <style>
@@ -62,4 +81,38 @@ console.log(data)
 	  h1{
         text-align: center;
     }
+
+	/* hero section */
+	.hero {
+  height: 600px;
+  width: 100%;
+  background-image: url("/src/img/hero_result.webp");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  display: flex;
+  align-items: center;
+  padding-left: 45px;
+
+  box-sizing: border-box;
+}
+
+.hero-content {
+  color: #fffdf0;
+  max-width: 350px;
+}
+
+.hero-content h1 {
+  font-size: 46px;
+  font-weight: 800;
+  line-height: 1;
+  margin-bottom: 18px;
+}
+
+.hero-content p {
+  font-size: 18px;
+  line-height: 1.2;
+  margin-bottom: 35px;
+}
 </style>
