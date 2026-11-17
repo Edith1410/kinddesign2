@@ -31,6 +31,25 @@
 
         <style>
 
+          @font-face {
+  font-family: "ExtraBig";
+  src: url("../fonts/ArchivoBlack-Regular.woff2") format("woff2");
+  font-weight: normal;
+          }
+@font-face {
+  font-family: "InterMedium";
+  src: url("../fonts/Inter_24pt-ExtraLight.woff2") format("woff2");
+  font-weight: normal;
+}
+
+h2{
+  font-family: ExtraBig;
+}
+a{
+  font-family: InterMedium;
+  text-decoration: none;
+}
+
 footer{
 	background-color: #2C0B11;
 	display: flex;
@@ -58,7 +77,6 @@ footer{
 .footer a {
   display: block;
   color: #FEFDAE;
-  text-decoration: none;
   font-size: 14px;
   font-weight: 300;
   transition: opacity 0.25s ease;
